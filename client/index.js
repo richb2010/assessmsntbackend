@@ -5,17 +5,15 @@ const app = express()
 
 app.use (express.json())
 
+
 const {
-    getAdvice,
-    deleteAdvice,
-    createAdvice,
-    updateAdvice, 
+    getCompliment, 
+    getFortune, 
+    addCompliment 
+} = require('../server/controller')
 
-} = require('./controller')
-
-app.get(`/api/Advice`, getAdvice, getAdvice2, getAdvice3)
-app.delete(`/api/Advice`, getAdvice, getAdvice2, getAdvice3)
-app.post(`/api/house`, createAdvice)
-app.put(`/api/Advice`. updateAdvice)
+app.get("/api/compliment", getCompliment)
+app.get("/api/fortunes", getFortune)
+app.post(`/api/Advice`. addCompliment)
 
 app.listen(5500, () => console.log(`running on 5500 `))
