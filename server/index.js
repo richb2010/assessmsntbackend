@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { getCompliment, getFortune } = require('./controller')
+const { getCompliment, getFortune } = require('../client/controller')
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.listen(4000, () => console.log("Server running on 4000"));
 
 app.use(express.json());
 
-const { getAdvice } = require('./controller')
+const { getAdvice } = require('../client/controller')
 
 app.get("/api/Advice", getAdvice);
 
