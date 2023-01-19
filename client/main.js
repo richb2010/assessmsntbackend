@@ -12,26 +12,35 @@ const getCompliment = () => {
 
 complimentBtn.addEventListener('click',getCompliment)
 const fortunesBtn = document.getElementById("fortuneButton")
-const complimaentInput = document.getElementById("complimentInput")
+const complimentInput = document.getElementById("complimentInput")
 const addComplimentButton = document.getElementById("addComplimentButton")
 
 const getFortune = () => {
-    axios.get("http://localhost:4000/api/fortune/")
+    axios.get("http://localhost:4000/api/fortunes/")
         .then(res => {
             const data = res.data;
             alert(data);
     });
 };
+
+fortunesBtn.addEventListener('click', getFortune)
+
 const addCompliment = () => {
-    const complimaentInput = document.getElementById('complimentInput')
+    const complimentInput = document.getElementById('complimentInput')
     const body ={
-        compliment: complimaentInput.value
+        compliment: complimentInput.value
     }
     axios.post(`http://localhost:4000/api/compliment`, body)
     .then(() => alert('compliment has been added'))
     .catch ((err) => console.log(err) )
 }
-
-complimentBtn.addEventListener('click', getAlertData)
+const getAlertData = (type) => {
+    axios.get((`http://localhost:4000/api/${type}`)
+        .then(res => {
+            const data = re.data;
+            alert (data);
+        })
+};
+complimentBtn.addEventListener('click', () => getAlertData)
 fortuneBtn.addEventListener('click',getAlertData)
-addcomplimentBtn.addEventListener('click', addCompliment)
+addComplimentBtn.addEventListener('click', () => addCompliment('compliment'));
