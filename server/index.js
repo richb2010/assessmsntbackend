@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const { getCompliment, getFortune } = require('../client/controller')
 
 const app = express();
 
@@ -8,15 +7,26 @@ app.use(cors());
 
 app.use(express.json());
 
-app.get("/api/compliment", getCompliment);
+const { 
+    getCompliment,
+    getFortune, 
+    addCompliment,
+    deleteCompliment,
+    deleteFortune,
+    UpdateCompliment,
+    updateFortune
+} = require('../server/controller') 
+
+app.get("/api/compliment", getCompliment)
 app.get("/api/fortunes", getFortune)
+app.post(`/api/Advice`. addCompliment)
+app.post(`/api/Advice`. addFortune)
+app.delete("/api/fortunes", deleteFortune)
+app.delete("/api/compliment", deleteCompliment)
+app.put(`/api/Advice`. updateCompliment)
+app.put(`/api/Advice`. updateFortune)
+
+
+
 
 app.listen(4000, () => console.log("Server running on 4000"));
-
-app.use(express.json());
-
-const { getAdvice } = require('../client/controller')
-
-app.get("/api/Advice", getAdvice);
-
-app.listen(5500, () => console.log("Server running on 5500"));

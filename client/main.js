@@ -41,6 +41,8 @@ const getAlertData = (type) => {
             alert (data);
         })
 };
+ 
 complimentBtn.addEventListener('click', () => getAlertData)
 fortuneBtn.addEventListener('click',getAlertData)
-addComplimentBtn.addEventListener('click', () => addCompliment('compliment'));
+addComplimentBtn.addEventListener('click', () => addCompliment('compliment'))
+addFortuneBtn. addEventListener('click', () => addFortune('fortune'));
